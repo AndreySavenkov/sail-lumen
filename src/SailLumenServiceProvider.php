@@ -21,6 +21,7 @@ class SailLumenServiceProvider extends ServiceProvider
      */
     protected $commands = [
         'SailInstall' => 'command.sail.install',
+        'SailPublish' => 'command.sail.publish',
         'Serve' => 'command.serve',
     ];
 

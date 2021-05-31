@@ -79,7 +79,7 @@ class SailInstallCommand extends Command
             })->implode("\n");
 
         $stubs = rtrim(collect($services)->map(function ($service) {
-            return file_get_contents(__DIR__ . "/../../stubs/{$service}.stub");
+            return file_get_contents($this->laravel->basePath("vendor/laravel/sail/stubs/{$service}.stub"));
         })->implode(''));
 
         $volumes = collect($services)
@@ -91,7 +91,7 @@ class SailInstallCommand extends Command
                 return $collection->prepend('volumes:');
             })->implode("\n");
 
-        $dockerCompose = file_get_contents(__DIR__ . '/../../stubs/docker-compose.stub');
+        $dockerCompose = file_get_contents($this->laravel->basePath('vendor/laravel/sail/stubs/docker-compose.stub'));
 
         $dockerCompose = str_replace('{{depends}}', empty($depends) ? '' : '        '.$depends, $dockerCompose);
         $dockerCompose = str_replace('{{services}}', $stubs, $dockerCompose);
