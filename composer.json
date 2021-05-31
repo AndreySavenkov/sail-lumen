@@ -1,0 +1,29 @@
+{
+    "name": "asavenkov/sail-lumen",
+    "description": "Laravel Sail Package for Lumen",
+    "license": "MIT",
+    "support": {
+        "source": "https://github.com/AndreySavenkov/sail-lumen"
+    },
+    "authors": [
+        {
+            "name": "Andrey Savenkov",
+            "email": "a@savenkov.dev"
+        }
+    ],
+    "require": {
+        "laravel/sail": "^1.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "ASavenkov\\SailLumen\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ASavenkov\\SailLumen\\SailLumenServiceProvider"
+            ]
+        }
+    }
+}
