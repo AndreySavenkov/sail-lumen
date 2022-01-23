@@ -86,7 +86,7 @@ class SailInstallCommand extends Command
             ->filter(function ($service) {
                 return in_array($service, ['mysql', 'pgsql', 'mariadb', 'redis', 'meilisearch', 'minio']);
             })->map(function ($service) {
-                return "    sail{$service}:\n        driver: local";
+                return "    sail-{$service}:\n        driver: local";
             })->whenNotEmpty(function ($collection) {
                 return $collection->prepend('volumes:');
             })->implode("\n");
